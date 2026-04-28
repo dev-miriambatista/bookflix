@@ -52,18 +52,3 @@ O projeto segue o padrão **MVC (Model-View-Controller)**:
 ## 📊 Problema que resolve
 
 Organizar e gerenciar informações de livros de forma estruturada, simulando o funcionamento de plataformas digitais de leitura.
-
----
-
-## 📸 Demonstração
-
-> Adicione aqui prints do sistema:
-
-- Menu principal  
-- Cadastro de livro  
-- Listagem de livros  
-
-```bash
-/docs/images/menu.png
-/docs/images/cadastro.png
-/docs/images/listagem.png
