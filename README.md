@@ -1,5 +1,4 @@
 <div align="center">
-<img src="book/public/image/favicon/book.svg" width="64" alt="LitSpace logo" />
 LitSpace
 
 Catálogo de livros com arquitetura MVC em PHP puro
@@ -81,9 +80,7 @@ Acesse: http://localhost:8000
 📸 Screenshots
 
 
-(adicione aqui prints da interface — listagem de livros, formulário de cadastro e tela de edição)
-
-Dica: arraste as imagens direto no editor do GitHub para inserir automaticamente.
+Adicione aqui prints da interface — arraste as imagens direto no editor do GitHub para inserir automaticamente.
 
 
 
@@ -94,25 +91,25 @@ O projeto implementa o padrão MVC do zero, sem framework.
 
 book/
 ├── public/
-│   ├── index.php          ← Front controller — roteamento manual
+│   ├── index.php             ← Front controller — roteamento manual
 │   ├── base.css
 │   └── book-list.css
 ├── src/
 │   ├── Controller/
-│   │   ├── Controller.php          ← Interface base
-│   │   ├── BookListController.php  ← Lista todos os livros
-│   │   ├── NewBookController.php   ← Cadastra novo livro
-│   │   ├── EditBookController.php  ← Edita livro existente
-│   │   ├── DeleteBookController.php← Remove livro
-│   │   ├── FormBookController.php  ← Exibe formulário
-│   │   └── Error404Controller.php  ← Rota não encontrada
+│   │   ├── Controller.php           ← Interface base
+│   │   ├── BookListController.php   ← Lista todos os livros
+│   │   ├── NewBookController.php    ← Cadastra novo livro
+│   │   ├── EditBookController.php   ← Edita livro existente
+│   │   ├── DeleteBookController.php ← Remove livro
+│   │   ├── FormBookController.php   ← Exibe formulário
+│   │   └── Error404Controller.php   ← Rota não encontrada
 │   ├── Entity/
-│   │   └── Book.php                ← Objeto de domínio com getters/setters
+│   │   └── Book.php                 ← Objeto de domínio com getters/setters
 │   └── Repository/
-│       └── BookRepository.php      ← Acesso ao banco via PDO
-├── views/                          ← Templates PHP
-├── criar-banco.php                 ← Script de criação do schema
-└── popula-banco.php                ← Script de seed de dados
+│       └── BookRepository.php       ← Acesso ao banco via PDO
+├── views/                           ← Templates PHP
+├── criar-banco.php                  ← Script de criação do schema
+└── popula-banco.php                 ← Script de seed de dados
 
 Como as camadas se comunicam
 
