@@ -1,21 +1,21 @@
 # 📚 LitSpace
 
-![LitSpace](https://img.shields.io/badge/Projeto-LisSpace-blue)
+![LitSpace](https://img.shields.io/badge/Projeto-LitSpace-blue)
 ![PHP](https://img.shields.io/badge/PHP-8%2B-purple)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 📖 Sobre o Projeto
 
-O **LitSpace** é uma aplicação web desenvolvida em **PHP puro** para gerenciamento e visualização de uma estante virtual de livros.
+O **LitSpace** é uma aplicação web desenvolvida em **PHP puro** para gerenciamento e exploração de uma estante virtual de livros.
 
-O objetivo do projeto é disponibilizar um catálogo organizado de livros, permitindo navegação, filtros por categoria e autor, paginação e gerenciamento dos registros.
+O projeto foi criado com o objetivo de proporcionar um espaço digital organizado para descoberta de livros, permitindo visualizar um catálogo, navegar por categorias, filtrar autores e gerenciar informações dos livros.
 
-A aplicação foi construída sem frameworks PHP, utilizando:
+A aplicação foi construída sem frameworks PHP, utilizando conceitos fundamentais de desenvolvimento web:
 
 - Programação Orientada a Objetos
 - Separação de responsabilidades
-- Arquitetura organizada em camadas
+- Organização em camadas
 - Banco de dados SQLite
 - Composer para gerenciamento de dependências
 
@@ -25,93 +25,88 @@ A aplicação foi construída sem frameworks PHP, utilizando:
 
 ## 📚 Catálogo de Livros
 
-- Exibição dos livros em cards
-- Visualização das capas
-- Informações dos livros:
-  - Título
-  - Autor
-  - Editora
-  - Edição
-  - Categoria
-  - Imagem
+O LitSpace apresenta uma biblioteca digital com livros organizados em cards contendo:
+
+- Capa do livro
+- Título
+- Autor
+- Editora
+- Edição
+- Categoria/Gênero
 
 ---
 
-## 🔎 Filtros
+## 🔎 Sistema de Filtros
 
-O sistema permite filtrar livros por:
+O usuário pode explorar o catálogo utilizando filtros por:
 
-- Categoria/Gênero
+- Categoria
 - Autor
 
-Os filtros utilizam requisições AJAX para atualizar o catálogo sem necessidade de recarregar toda a página.
+A atualização dos resultados acontece de forma dinâmica utilizando requisições AJAX.
 
 ---
 
 ## 📄 Paginação
 
-O catálogo possui sistema de paginação para organizar grandes volumes de livros.
+O catálogo possui paginação para melhorar a navegação entre os livros.
 
 Recursos:
 
-- Navegação entre páginas
-- Carregamento dinâmico
-- Controle de quantidade de registros exibidos
+- Divisão dos livros em páginas
+- Carregamento organizado dos registros
+- Melhor experiência de navegação
 
 ---
 
 ## ✏️ Gerenciamento de Livros
 
-A aplicação possui estrutura para:
+O sistema possui estrutura para:
 
-- Cadastro de livros
-- Edição de informações
-- Exclusão de registros
-- Consulta de livros
+- Adicionar novos livros
+- Editar informações
+- Remover registros
+- Consultar detalhes dos livros
 
 ---
 
 # 🏗️ Estrutura do Projeto
 
 
-LitSpace/
+litspace/
 │
-├── book/
-│ │
-│ ├── public/
-│ │ ├── index.php
-│ │ ├── base.css
-│ │ ├── book-list.css
-│ │ ├── book-form.css
-│ │ └── image/
-│ │ └── capas dos livros
-│ │
-│ ├── src/
-│ │ │
-│ │ ├── Controller/
-│ │ │ ├── BookListController.php
-│ │ │ ├── NewBookController.php
-│ │ │ ├── EditBookController.php
-│ │ │ └── DeleteBookController.php
-│ │ │
-│ │ ├── Entity/
-│ │ │ └── Book.php
-│ │ │
-│ │ └── Repository/
-│ │ └── BookRepository.php
-│ │
-│ ├── views/
-│ │ ├── book-list.php
-│ │ ├── book-form.php
-│ │ └── inicio-html.php
-│ │
-│ ├── db_book.sqlite
-│ ├── criar-banco.php
-│ ├── popula-banco.php
-│ ├── composer.json
-│ └── composer.lock
+├── public/
+│ ├── index.php
+│ ├── base.css
+│ ├── book-list.css
+│ ├── book-form.css
+│ └── image/
+│ └── capas dos livros
 │
-└── README.md
+├── src/
+│ │
+│ ├── Controller/
+│ │ ├── BookListController.php
+│ │ ├── NewBookController.php
+│ │ ├── EditBookController.php
+│ │ └── DeleteBookController.php
+│ │
+│ ├── Entity/
+│ │ └── Book.php
+│ │
+│ └── Repository/
+│ └── BookRepository.php
+│
+├── views/
+│ ├── book-list.php
+│ ├── book-form.php
+│ └── inicio-html.php
+│
+├── db_book.sqlite
+├── criar-banco.php
+├── popula-banco.php
+├── composer.json
+└── composer.lock
 
 
 ---
@@ -143,15 +138,12 @@ LitSpace/
 ## 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/dev-miriambatista/LitSpace.git
+git clone https://github.com/dev-miriambatista/litspace.git
 
-Acesse a pasta:
+Entre na pasta:
 
-cd litSpace
+cd litspace
 2. Instalar dependências
-
-Execute:
-
 composer install
 3. Criar o banco de dados
 
@@ -162,12 +154,9 @@ php criar-banco.php
 Depois:
 
 php popula-banco.php
-
-Esses comandos criam e populam o banco SQLite com os livros iniciais.
-
 4. Executar o servidor PHP
 
-Dentro da pasta pública:
+Execute:
 
 php -S localhost:8000 -t public
 
@@ -176,74 +165,83 @@ Acesse:
 http://localhost:8000
 🗃️ Banco de Dados
 
-O projeto utiliza SQLite por ser uma solução simples, leve e eficiente para aplicações locais.
+O LitSpace utiliza SQLite como banco de dados.
 
 Entidade principal
 Book
 Campo	Descrição
-id	Identificador do livro
-title	Título
+id	Identificador
+title	Título do livro
 writer	Autor
 publisher	Editora
 edition	Edição
 gender	Categoria
-image	Caminho da capa
-🧩 Arquitetura do Projeto
+image	Capa
+🧩 Arquitetura
 
-O LitSpace segue uma organização baseada no padrão MVC.
+O projeto segue uma organização inspirada no padrão MVC.
 
 Controller
 
-Responsável por:
+Responsável pelo controle das ações da aplicação:
 
 Receber requisições
-Controlar ações
-Coordenar o fluxo da aplicação
+Executar operações
+Controlar fluxo
 Entity
 
-Representa as entidades do sistema.
+Representa os objetos principais do sistema.
 
 Exemplo:
 
 Book
-
-Responsável pelos objetos de livro.
-
 Repository
 
-Responsável pela comunicação com o banco de dados:
+Responsável pelo acesso aos dados:
 
 Consultas SQL
 Filtros
 Paginação
 Persistência
-📌 Melhorias Futuras
- Sistema de autenticação
- Área administrativa
+🌱 Melhorias Futuras
+ Sistema de login
+ Perfil de usuário
  Lista de favoritos
- Avaliação dos livros
- Pesquisa por título
+ Avaliação de livros
+ Busca avançada
  Upload de capas
  API REST
- Migração para framework PHP
+ Dashboard administrativo
 👩‍💻 Desenvolvido por
 Miriam Batista
 
 Projeto desenvolvido para prática de:
 
 PHP Orientado a Objetos
-Banco de dados SQLite
 Desenvolvimento Web
-Organização de sistemas
-Arquitetura de aplicações
+Banco de Dados SQLite
+Arquitetura de Sistemas
 📄 Licença
 
 Este projeto está licenciado sob a licença MIT.
 
 
-Depois de criar o arquivo no GitHub, faça:
+Também recomendo alterar o nome do repositório no GitHub:
+
+Atual:
+
+https://github.com/dev-miriambatista/bookflix
+
+
+Novo:
+
+https://github.com/dev-miriambatista/litspace
+
+
+No GitHub:
+**Settings → General → Repository name → Rename**
+
+Depois, localmente:
 
 ```bash
-git add README.md
-git commit -m "docs: adiciona README do projeto LitSpace"
-git push
+git remote set-url origin https://github.com/dev-miriambatista/litspace.git
