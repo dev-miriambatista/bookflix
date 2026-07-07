@@ -3,51 +3,38 @@
 Sistema de catálogo de livros desenvolvido em PHP Orientado a Objetos, seguindo uma
 organização inspirada no padrão MVC, com persistência em SQLite.
 
-## ⚠️ Antes de tudo: renomear o repositório
-
-Se o repositório no GitHub ainda estiver com o nome antigo (`bookflix`), renomeie
-**antes** de clonar, para que a URL abaixo funcione:
-
-No GitHub: **Settings → General → Repository name** → `litspace`
-
-Se você já tem uma cópia local apontando para o nome antigo, atualize o remote:
-
-\`\`\`bash
-git remote set-url origin https://github.com/dev-miriambatista/litspace.git
-\`\`\`
-
 ## 🚀 Como rodar o projeto
 
 ### 1. Clonar o repositório
 
-\`\`\`bash
+​```bash
 git clone https://github.com/dev-miriambatista/litspace.git
 cd litspace
-\`\`\`
+​```
 
 ### 2. Instalar dependências
 
-\`\`\`bash
+​```bash
 composer install
-\`\`\`
+​```
 
 ### 3. Criar e popular o banco de dados
 
 O arquivo do banco (`db_book.sqlite`) **não é versionado** — ele é gerado localmente.
 
-\`\`\`bash
+​```bash
 php criar-banco.php
 php popula-banco.php
-\`\`\`
+​```
 
 > Se você já rodou esses comandos antes e quiser recomeçar do zero, apague o
 > arquivo `db_book.sqlite` da raiz do projeto e rode os dois comandos novamente.
 
 ### 4. Executar o servidor PHP
 
-\`\`\`bash
+​```bash
 php -S localhost:8000 -t public
-\`\`\`
+​```
 
 Acesse: [http://localhost:8000](http://localhost:8000)
 
