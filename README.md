@@ -1,13 +1,13 @@
-# 📚 BookFlix
+# 📚 LitSpace
 
-![BookFlix](https://img.shields.io/badge/Projeto-BookFlix-blue)
+![LitSpace](https://img.shields.io/badge/Projeto-LisSpace-blue)
 ![PHP](https://img.shields.io/badge/PHP-8%2B-purple)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 📖 Sobre o Projeto
 
-O **BookFlix** é uma aplicação web desenvolvida em **PHP puro** para gerenciamento e visualização de uma estante virtual de livros.
+O **LitSpace** é uma aplicação web desenvolvida em **PHP puro** para gerenciamento e visualização de uma estante virtual de livros.
 
 O objetivo do projeto é disponibilizar um catálogo organizado de livros, permitindo navegação, filtros por categoria e autor, paginação e gerenciamento dos registros.
 
@@ -74,7 +74,7 @@ A aplicação possui estrutura para:
 # 🏗️ Estrutura do Projeto
 
 
-bookflix/
+LitSpace/
 │
 ├── book/
 │ │
@@ -143,11 +143,11 @@ bookflix/
 ## 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/dev-miriambatista/bookflix.git
+git clone https://github.com/dev-miriambatista/LitSpace.git
 
 Acesse a pasta:
 
-cd bookflix
+cd litSpace
 2. Instalar dependências
 
 Execute:
@@ -190,7 +190,7 @@ gender	Categoria
 image	Caminho da capa
 🧩 Arquitetura do Projeto
 
-O BookFlix segue uma organização baseada no padrão MVC.
+O LitSpace segue uma organização baseada no padrão MVC.
 
 Controller
 
@@ -245,5 +245,5 @@ Depois de criar o arquivo no GitHub, faça:
 
 ```bash
 git add README.md
-git commit -m "docs: adiciona README do projeto BookFlix"
+git commit -m "docs: adiciona README do projeto LitSpace"
 git push
