@@ -1,0 +1,375 @@
+/* ============================================
+   HERO de boas-vindas (topo da página inicial)
+   ============================================ */
+.estante-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    margin: var(--space-4) var(--space-6) 0;
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    color: #fdf9f0;
+    background: linear-gradient(120deg, var(--color-teal) 0%, var(--color-teal-deep) 65%, #1c3d3b 100%);
+    box-shadow: var(--shadow-card);
+}
+
+.estante-hero__text {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+}
+
+.estante-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--space-2);
+}
+
+.estante-hero__title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-2);
+    color: #fdf9f0;
+}
+
+.estante-hero__subtitle {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(253, 249, 240, 0.82);
+    line-height: 1.5;
+}
+
+.estante-hero__stats {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: var(--space-4);
+    flex-shrink: 0;
+}
+
+.estante-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 96px;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    background-color: rgba(253, 249, 240, 0.12);
+    border: 1px solid rgba(253, 249, 240, 0.25);
+    backdrop-filter: blur(2px);
+}
+
+.estante-stat__value {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-gold);
+}
+
+.estante-stat__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: var(--space-1);
+    font-size: 0.78rem;
+    color: rgba(253, 249, 240, 0.85);
+    white-space: nowrap;
+}
+
+.estante-hero__icon {
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    font-size: 9rem;
+    color: rgba(253, 249, 240, 0.08);
+    z-index: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+    .estante-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: var(--space-4) var(--space-4) 0;
+    }
+
+    .estante-hero__stats {
+        width: 100%;
+    }
+
+    .estante-stat {
+        flex: 1;
+    }
+}
+
+/* ============================================
+   PÁGINA: Estante de Livros (listagem)
+   ============================================ */
+.page-list {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-card);
+    position: sticky;
+    top: var(--space-5);
+}
+
+.sidebar__eyebrow {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-3);
+    color: var(--color-gold);
+}
+
+.sidebar label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+}
+
+#gender-select {
+    width: 100%;
+    padding: 10px var(--space-3);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface-alt);
+}
+
+#gender-select:hover {
+    border-color: var(--color-teal);
+}
+
+#gender-select:focus {
+    border-color: var(--color-teal);
+    box-shadow: 0 0 0 0.2rem rgba(47, 111, 107, 0.2);
+}
+
+#gender-select option {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+}
+
+.sidebar__icon {
+    display: block;
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--color-coral);
+    opacity: 0.45;
+    margin-top: var(--space-4);
+}
+
+/* ============================================
+   Grid de livros (Bootstrap row/col em #bookDisplay)
+   ============================================ */
+#bookDisplay {
+    flex: 1;
+    min-width: 0;
+}
+
+.book-grid__empty {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: var(--space-6);
+}
+
+/* ============================================
+   Card de livro (baseado no .card do Bootstrap)
+   ============================================ */
+.book-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-teal);
+}
+
+.book-card--horizontal {
+    height: 190px;
+    overflow: hidden;
+}
+
+.book-card--horizontal .row {
+    --bs-gutter-x: 0;
+}
+
+.book-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--color-surface-alt);
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+    display: block;
+}
+
+.book-card .card-body {
+    padding: var(--space-3);
+    min-width: 0;
+}
+
+.book-card__title {
+    font-family: var(--font-display);
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0 0 var(--space-2);
+    color: var(--color-text);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.25;
+}
+
+.book-card__meta {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.book-card__meta li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+.book-card__meta i {
+    flex-shrink: 0;
+    width: 14px;
+    text-align: center;
+    color: var(--color-gold);
+    font-size: 0.9rem;
+}
+
+.book-card__actions {
+    border-top: 1px solid var(--color-border);
+    padding-top: 6px;
+}
+
+.book-card__btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.book-card__btn.btn-outline-secondary {
+    color: var(--color-teal);
+    border-color: var(--color-teal);
+}
+
+.book-card__btn.btn-outline-secondary:hover,
+.book-card__btn.btn-outline-secondary:focus {
+    background-color: var(--color-teal);
+    border-color: var(--color-teal);
+    color: #fdf9f0;
+}
+
+.book-card__btn.btn-outline-danger {
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+.book-card__btn.btn-outline-danger:hover,
+.book-card__btn.btn-outline-danger:focus {
+    background-color: var(--color-danger);
+    border-color: var(--color-danger);
+    color: #fdf9f0;
+}
+
+/* Desktop/notebook: cards mais baixos para garantir 2 linhas inteiras na tela */
+@media (min-width: 901px) {
+    .book-card--horizontal {
+        height: 170px;
+    }
+
+    .book-card .card-body {
+        padding: var(--space-2);
+    }
+
+    .book-card__title {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+
+    .book-card__meta {
+        gap: 2px;
+    }
+
+    .book-card__meta li {
+        font-size: 0.78rem;
+    }
+
+    .book-card__meta i {
+        font-size: 0.82rem;
+    }
+
+    .book-card__actions {
+        padding-top: 5px;
+        gap: 4px !important;
+    }
+
+    .book-card__btn {
+        width: 26px;
+        height: 26px;
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================
+   Responsividade
+   ============================================ */
+@media (max-width: 900px) {
+    .page-list {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+    }
+}

@@ -1,0 +1,10 @@
+/*
+ * Este arquivo não está mais em uso.
+ * Ele não era carregado por nenhuma página (não havia <link> apontando
+ * pra ele) e definia fontes com nomes inválidos ('Osvaldo', 'fangsong',
+ * 'Corbel') que não correspondiam às fontes importadas.
+ *
+ * O sistema de design atual vive em /public/base.css, que já define
+ * as variáveis de cor, tipografia (Fraunces + Inter) e espaçamento
+ * usadas por todas as páginas.
+ */

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   DESIGN TOKENS — paleta "cantinho de leitura", versão clara
+   ============================================ */
+:root {
+    /* Cores base — fundo claro e quente (não branco puro, não pesado) */
+    --color-bg: #f2ead9;           /* areia/pergaminho — fundo geral */
+    --color-surface: #fbf6ec;      /* superfície de cards/painéis */
+    --color-surface-alt: #f2e9d8;  /* inputs, áreas internas */
+    --color-border: #ddc9a3;
+
+    --color-teal: #dc3545;         /* verde-azulado — ação primária */
+    --color-teal-deep: #234f4c;    /* hover da ação primária */
+    --color-coral: #e0784f;        /* coral — destaque/secundário */
+    --color-coral-deep: #c25f3a;   /* hover do coral */
+    --color-mauve: #8c7a63;        /* taupe — hover neutro */
+    --color-gold: #c9862f;         /* dourado — detalhe "folha de livro" */
+
+    --color-text: #322a20;         /* texto principal sobre fundo claro */
+    --color-text-muted: #6d6152;   /* texto secundário */
+    --color-danger: #c0392b;
+
+    /* Compatibilidade com nomes antigos usados no restante do CSS */
+    --color-rose: var(--color-coral);
+    --color-rose-deep: var(--color-teal);
+
+    /* Tipografia */
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Espaçamento (múltiplos de 4px) */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+
+    /* Bordas e sombras */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --shadow-card: 0 4px 14px rgba(50, 42, 32, 0.12);
+    --shadow-hover: 0 6px 20px rgba(50, 42, 32, 0.18);
+
+    /* ---- Bootstrap 5.3: sobrescreve as variáveis do tema ----
+       Assim os componentes nativos do Bootstrap (botões, formulários,
+       navbar, etc.) já nascem com a nossa paleta, sem precisar recompilar
+       o Sass do framework. */
+    --bs-body-bg: var(--color-bg);
+    --bs-body-color: var(--color-text);
+    --bs-border-color: var(--color-border);
+    --bs-border-radius: var(--radius-sm);
+    --bs-border-radius-lg: var(--radius-lg);
+    --bs-box-shadow: var(--shadow-card);
+    --bs-link-color: var(--color-teal);
+    --bs-link-hover-color: var(--color-teal-deep);
+
+    --bs-primary: var(--color-teal);
+    --bs-primary-rgb: 47, 111, 107;
+    --bs-secondary: var(--color-mauve);
+    --bs-secondary-rgb: 140, 122, 99;
+    --bs-success: #4c8c5a;
+    --bs-success-rgb: 76, 140, 90;
+    --bs-danger: var(--color-danger);
+    --bs-danger-rgb: 192, 57, 43;
+    --bs-warning: var(--color-gold);
+    --bs-warning-rgb: 201, 134, 47;
+}
+
+/* ============================================
+   RESET / BASE
+   ============================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ============================================
+   HEADER / NAV compartilhado
+   ============================================ */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-card);
+}
+
+.site-header__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.site-header__brand i {
+    color: var(--color-gold);
+    font-size: 1.4rem;
+}
+
+.site-header__nav {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.site-header__nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    background-color: rgba(50, 42, 32, 0.06);
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.site-header__nav a:hover,
+.site-header__nav a:focus-visible {
+    background-color: rgba(50, 42, 32, 0.12);
+    transform: translateY(-1px);
+}
+
+.site-header__nav a.is-primary {
+    background-color: var(--color-teal);
+    color: #fdf9f0;
+}
+
+.site-header__nav a.is-primary:hover {
+    background-color: var(--color-teal-deep);
+}
+
+/* ============================================
+   BOTÕES padrão (reutilizados em toda a app)
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 12px var(--space-4);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: rgba(50, 42, 32, 0.08);
+    color: var(--color-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-icon:hover,
+.btn-icon:focus-visible {
+    background-color: var(--color-teal);
+    color: #fdf9f0;
+}
+
+.btn-icon--danger:hover {
+    background-color: var(--color-danger);
+    color: #fdf9f0;
+}
+
+/* Foco visível para acessibilidade em qualquer elemento interativo */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
