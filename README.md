@@ -1,100 +1,178 @@
-# 📚 LitSpace
+<div align="center">
+<img src="book/public/image/favicon/book.svg" width="64" alt="LitSpace logo" />
+LitSpace
 
-Sistema de catálogo de livros desenvolvido em PHP Orientado a Objetos, seguindo uma
-organização inspirada no padrão MVC, com persistência em SQLite.
+Catálogo de livros com arquitetura MVC em PHP puro
 
-## 🚀 Como rodar o projeto
+Mostrar Imagem
+Mostrar Imagem
+Mostrar Imagem
+Mostrar Imagem
+Mostrar Imagem
 
-### 1. Clonar o repositório
+✨ Funcionalidades · 🚀 Como rodar · 🧩 Arquitetura · 📸 Screenshots · 🌱 Próximos passos
 
-​```bash
+</div>
+
+Sobre o projeto
+
+O LitSpace é um sistema de catálogo de livros construído em PHP orientado a objetos, sem framework, seguindo a arquitetura MVC com separação real entre camadas.
+
+O projeto nasceu da vontade de entender como frameworks como Laravel funcionam por dentro — antes de usar a mágica, construir a estrutura do zero.
+
+O que foi praticado:
+
+
+Arquitetura MVC implementada manualmente — sem framework
+Orientação a objetos com interface, entidade e repositório
+PDO com prepared statements para proteção contra SQL injection
+Autoload PSR-4 com Composer
+Operações CRUD completas com SQLite
+CSS com design tokens (custom properties) e layout responsivo
+
+
+
+✨ Funcionalidades
+
+
+📚 Listagem de livros com filtro por categoria
+➕ Cadastro de novos livros com capa
+✏️ Edição de livros existentes
+🗑️ Exclusão com confirmação
+📄 Paginação da listagem
+🎨 Interface responsiva com tema literário
+
+
+
+🚀 Como rodar
+
+Pré-requisitos
+
+
+PHP 8.1 ou superior
+Composer instalado
+Extensão PDO SQLite habilitada
+
+
+Passo a passo
+
+bash# 1. Clone o repositório
 git clone https://github.com/dev-miriambatista/litspace.git
 cd litspace
-​```
 
-### 2. Instalar dependências
-
-​```bash
+# 2. Instale as dependências
 composer install
-​```
 
-### 3. Criar e popular o banco de dados
-
-O arquivo do banco (`db_book.sqlite`) **não é versionado** — ele é gerado localmente.
-
-​```bash
+# 3. Crie e popule o banco de dados
 php criar-banco.php
 php popula-banco.php
-​```
 
-> Se você já rodou esses comandos antes e quiser recomeçar do zero, apague o
-> arquivo `db_book.sqlite` da raiz do projeto e rode os dois comandos novamente.
-
-### 4. Executar o servidor PHP
-
-​```bash
+# 4. Suba o servidor
 php -S localhost:8000 -t public
-​```
 
-Acesse: [http://localhost:8000](http://localhost:8000)
+Acesse: http://localhost:8000
 
-## 🗃️ Banco de Dados
 
-O LitSpace utiliza **SQLite** como banco de dados.
+💡 Para recomeçar do zero, apague o arquivo db_book.sqlite da raiz e rode os passos 3 e 4 novamente.
 
-### Entidade principal — `Book`
 
-| Campo     | Descrição      |
-|-----------|----------------|
-| id        | Identificador  |
-| title     | Título do livro|
-| writer    | Autor          |
-| publisher | Editora        |
-| edition   | Edição         |
-| gender    | Categoria      |
-| image     | Capa           |
 
-## 🧩 Arquitetura
 
-O projeto segue uma organização inspirada no padrão MVC.
+📸 Screenshots
 
-**Controller**
-Responsável pelo controle das ações da aplicação:
-- Receber requisições
-- Executar operações
-- Controlar fluxo
 
-**Entity**
-Representa os objetos principais do sistema. Exemplo: `Book`.
+(adicione aqui prints da interface — listagem de livros, formulário de cadastro e tela de edição)
 
-**Repository**
-Responsável pelo acesso aos dados:
-- Consultas SQL
-- Filtros
-- Paginação
-- Persistência
+Dica: arraste as imagens direto no editor do GitHub para inserir automaticamente.
 
-## 🌱 Melhorias Futuras
 
-- [ ] Sistema de login
-- [ ] Perfil de usuário
-- [ ] Lista de favoritos
-- [ ] Avaliação de livros
-- [ ] Busca avançada
-- [ ] Upload de capas
-- [ ] API REST
-- [ ] Dashboard administrativo
 
-## 👩‍💻 Desenvolvido por
 
-**Miriam Batista**
+🧩 Arquitetura
 
-Projeto desenvolvido para prática de:
-- PHP Orientado a Objetos
-- Desenvolvimento Web
-- Banco de Dados SQLite
-- Arquitetura de Sistemas
+O projeto implementa o padrão MVC do zero, sem framework.
 
-## 📄 Licença
+book/
+├── public/
+│   ├── index.php          ← Front controller — roteamento manual
+│   ├── base.css
+│   └── book-list.css
+├── src/
+│   ├── Controller/
+│   │   ├── Controller.php          ← Interface base
+│   │   ├── BookListController.php  ← Lista todos os livros
+│   │   ├── NewBookController.php   ← Cadastra novo livro
+│   │   ├── EditBookController.php  ← Edita livro existente
+│   │   ├── DeleteBookController.php← Remove livro
+│   │   ├── FormBookController.php  ← Exibe formulário
+│   │   └── Error404Controller.php  ← Rota não encontrada
+│   ├── Entity/
+│   │   └── Book.php                ← Objeto de domínio com getters/setters
+│   └── Repository/
+│       └── BookRepository.php      ← Acesso ao banco via PDO
+├── views/                          ← Templates PHP
+├── criar-banco.php                 ← Script de criação do schema
+└── popula-banco.php                ← Script de seed de dados
 
-Este projeto está licenciado sob a licença MIT.
+Como as camadas se comunicam
+
+Requisição HTTP
+      ↓
+index.php (roteamento)
+      ↓
+Controller (lógica de controle)
+      ↓
+Repository (acesso a dados via PDO)
+      ↓
+Entity Book (objeto de domínio)
+      ↓
+View (template PHP)
+      ↓
+Resposta HTML
+
+Decisões técnicas
+
+Por que PDO com bindValue tipado?
+Prepared statements com tipos explícitos (PDO::PARAM_INT) protegem contra SQL injection e garantem que o banco receba o tipo correto — sem depender de cast automático do PHP.
+
+Por que interface Controller?
+O index.php chama $controller->processaRequisicao() sem saber qual controller está usando. Isso é polimorfismo — qualquer controller pode ser trocado sem alterar o front controller.
+
+Por que hydrateBook?
+Separar a construção do objeto Book dos dados brutos do banco segue o padrão Data Mapper — o repositório conhece o banco, mas a entidade não sabe que existe um banco.
+
+
+🗃️ Banco de dados
+
+CampoTipoDescriçãoidINTEGERChave primáriatitleTEXTTítulo do livrowriterTEXTAutorpublisherTEXTEditoraeditionINTEGERNúmero da ediçãogenderTEXTCategoria / gêneroimageTEXTCaminho da imagem capa
+
+
+🌱 Próximos passos
+
+
+ Autenticação de usuário com sessão PHP
+ Upload de imagem de capa direto pelo formulário
+ Busca por título e autor
+ API REST com retorno JSON
+ Migração do banco para MySQL
+ Testes unitários com PHPUnit
+ Deploy em servidor real
+
+
+
+👩‍💻 Autora
+
+<div align="center">
+Miriam Batista
+
+Estudante de Análise e Desenvolvimento de Sistemas no SENAC PR, em transição de carreira após mais de 10 anos na área administrativa. Construindo projetos reais para entender tecnologia de dentro para fora — não só usar o framework, mas saber o que ele resolve.
+
+Mostrar Imagem
+Mostrar Imagem
+
+</div>
+
+<div align="center">
+Feito com 📚 e muito php -S localhost:8000
+
+</div>
